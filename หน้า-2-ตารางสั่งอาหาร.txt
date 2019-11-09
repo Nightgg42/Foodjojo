@@ -1,0 +1,292 @@
+หน้า 2 ระบบตาราง 
+package foodjojo;
+
+import java.text.DecimalFormat;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+public class foodjojo0 extends javax.swing.JFrame {
+   String price[]={"30","40","50","60","70","80","90"};
+   DefaultTableModel model;
+   DecimalFormat df=new DecimalFormat("#,###.00");
+   double total=0.0;
+   int selected;
+   int n;
+   
+   double money;
+    public foodjojo0() {
+        initComponents();
+        a1.setText(price[0]);
+        model =(DefaultTableModel)tb.getModel();
+    }
+
+    
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        a00 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        a1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        a2 = new javax.swing.JTextField();
+        b1 = new javax.swing.JButton();
+        b2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tb = new javax.swing.JTable();
+        lbtotal = new javax.swing.JLabel();
+        x1 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ร้านอาหาร");
+
+        jLabel1.setText("รายการอาหาร");
+
+        a00.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ข้าวไข่เจียว", "กะเพราหมูกรอบ", "ข้าวผัดอเมริกัน", "หูฉลาม", "สเต็กหมูทอด", "ลาซานญ่า", "หัวหมู" }));
+        a00.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                a00ItemStateChanged(evt);
+            }
+        });
+        a00.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a00ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("ราคา");
+
+        a1.setEnabled(false);
+
+        jLabel3.setText("จำนวน");
+
+        b1.setText("เพิ่ม");
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
+
+        b2.setText("ลบ");
+        b2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b2ActionPerformed(evt);
+            }
+        });
+
+        tb.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "รายการอาหาร", "ราคา/ชุด", "จำนวน", "ราคา"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tb);
+        if (tb.getColumnModel().getColumnCount() > 0) {
+            tb.getColumnModel().getColumn(0).setResizable(false);
+            tb.getColumnModel().getColumn(1).setResizable(false);
+            tb.getColumnModel().getColumn(2).setResizable(false);
+            tb.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        lbtotal.setText("ราคารวม");
+
+        x1.setText("ถัดไป");
+        x1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                x1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(a00, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(164, 164, 164)
+                                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(a1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(a2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(x1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(a00, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(a1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(a2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(b1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(b2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(x1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void a00ItemStateChanged(java.awt.event.ItemEvent evt) {                                     
+        a1.setText(price[a00.getSelectedIndex()]);
+    }                                    
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+         Vector v = new Vector();
+        if(a2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"กรุณาป้อนจำนวนอาหาร","คำเตือน",
+                    JOptionPane.ERROR_MESSAGE);
+           
+        }
+        if(checkMenu()){
+            int a=Integer.parseInt(model.getValueAt(n,2).toString())
+                    +Integer.parseInt(a2.getText());
+            System.out.println("a="+a);
+            model.setValueAt(a,n,2);
+            
+            
+            double price1 = a*Double.valueOf(tb.getValueAt(n,1).toString());
+            System.out.println("จำนวนเงินใหม่="+price1);
+            model.setValueAt(df.format(price1),n,3);
+            
+            money = Double.valueOf(a1.getText())*Double.valueOf(a2.getText());
+            total+=money;
+            lbtotal.setText("ราคารวม : "+df.format(total)+" บาท ");
+        }else{
+            v.add(a00.getSelectedItem().toString());
+            v.add(a1.getText());
+            v.add(a2.getText());
+            money = Double.valueOf(a1.getText())*Double.valueOf(a2.getText());
+            v.add(df.format(money));
+            total+=money;
+            model.addRow(v);
+            lbtotal.setText("ราคารวม : "+df.format(total)+" บาท ");
+        }
+    }                                  
+
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+       if(tb.isRowSelected(selected)){
+        
+        double moneySelected = Double.valueOf(tb.getValueAt(selected,3).toString().replace(",",""));                
+        System.out.println("แสดงจำนวนเงิน = "+moneySelected);
+        total-=moneySelected;
+        lbtotal.setText("ราคารวม : "+df.format(total)+" บาท ");
+        if(total==0){
+            lbtotal.setText("ราคารวม : 0.00 บาท");
+        }
+        model.removeRow(selected);
+       }else{
+           JOptionPane.showMessageDialog(this,"กรุณาเลือกแถวในตาราง","คำเตือน",JOptionPane.ERROR_MESSAGE);
+       }
+    }                                  
+
+    private void tbMouseClicked(java.awt.event.MouseEvent evt) {                                
+        selected=tb.getSelectedRow();
+        System.out.print("แถวที่เลือก="+selected);
+        
+    }                               
+
+    private void x1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        new th().setVisible(true);
+    }                                  
+
+    private void a00ActionPerformed(java.awt.event.ActionEvent evt) {                                    
+        // TODO add your handling code here:
+    }                                   
+    public boolean checkMenu(){
+        for (int i= 0;i<tb.getRowCount();i++){
+            if(a00.getSelectedItem().toString().equals(tb.getValueAt(i,0))){
+                n=1;
+                System.out.println("รายการอาหารซ้ำกัน"+"ที่แถว"+n);
+                return true;
+                }
+            }
+             return  false;
+         }
+    
+    public static void main(String args[]) {
+        
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(foodjojo0.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+       
+        java.awt.EventQueue.invokeLater(() -> {
+            new foodjojo0().setVisible(true);
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JComboBox<String> a00;
+    private javax.swing.JTextField a1;
+    private javax.swing.JTextField a2;
+    private javax.swing.JButton b1;
+    private javax.swing.JButton b2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbtotal;
+    private javax.swing.JTable tb;
+    private javax.swing.JButton x1;
+    // End of variables declaration                   
+
+    private Object thatpai() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
